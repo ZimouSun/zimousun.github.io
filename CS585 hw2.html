@@ -63,30 +63,22 @@ and one hand gesture. There is a window, which will display the hand shape or ge
 
 <p>
 Preprocessing Video Frame :<br>
-The first stage is preprocess video frames. For each frame we apply skin detection, and use the OpenCV librarcy function "cv2.findContours"
-to help identify the hand region of the original frame image. In skin detection, we set up a threshold B>20 , G > 40, R >150, and 
-assign (255,255,255) to the pixels passed. Then the next task will be calling "findContours" function to find a list of boundingboxes
-from the preprocessing frame.  And we pick the boundingbox that give us the largest area to return.
+The first stage is preprocessing video frames. For each frame, we apply skin detection and use the OpenCV library function "cv2.findContours" to help identify the hand region of the original frame image. In skin detection, we set up a threshold B>20 , G > 40, R >150, and assign (255,255,255) to the pixels passed. Then the next task will be calling "findContours" function to find a list of bounding boxes from the preprocessing frame. And we pick the bounding box that gives us the largest area to return.
 </p>
 
 <p>
 Hand Shape Detection:
 <br>
-For hand shape Detection we have created a set of binary template for 4 kinds of hand shapes and use template matching to identify 
-valid hand shape from the input. We first resize the template to the same dimensions of the hand image(from preprocessing), then we call 
-call the openCV "absdiff" function to calculate the absoulute difference between the template and the hand image. We also create a flipped 
-version of the template, to cover the hand shape in the other direction. The smaller the difference between the image and the template the 
-more likely it is a match. Eventually, there is a the max difference value and a boundingbox size check to guard the validity of our dection.
+For hand shape Detection we have created a set of binary templates for 4 kinds of hand shapes and use template matching to identify valid hand shapes from the input. We first resize the template to the same dimensions of the hand image(from preprocessing), then we call the openCV "absdiff" function to calculate the absolute difference between the template and the hand image. We also create a flipped version of the template, to cover the hand shape in the other direction. The smaller the difference between the image and the template the more likely it is a match. Eventually, there is a max difference value and a bounding box size check to guard the validity of our detection.
 </p>
 
 <p>
 Hand Movement Detection:
 <br>
-For hand movement "waving", we have two type of binary template, frame-to-frame differencing templates set and
-motion energy templates set, and two corresponding (types of) the hand image. To detect, we calculate the normalized correlation coefficient
-for each template-"hand image" pair, and submit the maximum NCC score to final check. We set a threshold for waving's NCC score(0.5),
-and a minimum size check for the hand image. Additionally, to speed up the computation, the mean and standard 
-deviation of templates were precalculated. 
+For hand movement "waving", we have two types of binary template, frame-to-frame differencing templates set and
+motion energy templates set, and two correspondings (types of) the hand image. To detect, we calculate the normalized correlation coefficient
+for each template-"hand image" pair and submit the maximum NCC score to final check. We set a threshold for waving's NCC score(0.5),
+and a minimum size check for the hand image. Additionally, to speed up the computation, the mean and standard deviation of templates were precalculated. 
 
 </p>
 
