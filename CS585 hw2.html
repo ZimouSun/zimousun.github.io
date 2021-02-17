@@ -161,14 +161,12 @@ Eventually the program is able to detect four hand shapes:  ok ,  pistol, thumb 
 <p> 
 Discuss your method and results:
 </p><ul>
-<li>What are the strengths and weaknesses of your method? </li>
-<li>Do your results show that your method is generally successful or
-     are there limitations? Describe what you expected to find in your
-     experiments, and how that differed or was confirmed by your
-     results. </li>
-<li>Potential future work. How could your method be improved?   What
-would you try (if you had more time) to overcome the
-failures/limitations of your work?</li> 
+<li> The program requires user to manully tune the skin detection thresholds when used under different contexts. However, once the tunning is done, the algorithm is capable of 
+ detect gesture and hand shapes, which it was designed to recognize. </li>
+<li>In the developement process, we found that using normalized correlation correfficient to measure how likelihood of a positive detection is quite accurate. Althought we only
+ use NCC for gesture detection, but it was confirmed to work just as well on hand shapes detection. So the application of NCC is general success. </li>
+<li>There are many other measures like circularity , object orientation, centroid can be added to the likelihood calculate for each candidates. However, now we were not able to 
+ implement all these image moments into the algorithm due to the fact doing that will slow down the computation and make the program no longer respondsive</li> 
 </ul>
 <p></p>
 
@@ -176,28 +174,23 @@ failures/limitations of your work?</li>
 <h2> Conclusions </h2>
 
 <p>
-Based on your discussion, what are your conclusions?  What is your
-main message?
+This program shows that computer vision has the potential of understanding human body language. But itself is not intelligent enough. In the future, we may consider 
+add a feature that will make thee skin detection setting get adapted to the enviroment automatically. Also by further optimizing the way we implement heavy computation part of the 
+ algorithm, we may be able to add more measure to boost the precision of this program.
 </p>
 
-
+CS585: Lecture 1/18/2021 - 2/11/2021
+CS585: Lab2 ,Lab3 (2021 Spring) 
 <hr>
 <h2> Credits and Bibliography </h2>
 <p>
 
-Cite any papers or other references you consulted while developing
-your solution.  Citations to papers should include the authors, the
-year of publication, the title of the work, and the publication
-information (e.g., book name and publisher; conference proceedings and
-location; journal name, volume and pages; technical report and
-institution).  
 
-</p><p>
-Material on the web should include the url and date of access.
+
 </p>
 
 <p>
-Credit any joint work or discussions with your classmates. 
+ Thanks to Yipei Su, Bowen Sun, Hao He.
 </p>
 <hr>
 </div>
