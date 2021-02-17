@@ -76,7 +76,16 @@ version of the template, to cover the hand shape in the other direction. The sma
 more likely it is a match. Eventually, there is a the max difference value and a boundingbox size check to guard the validity of our dection.
 <br>
 
+Hand Movement Detection:
+<br>
+For hand movement "waving", we have two type of binary template, frame-to-frame differencing templates set and
+motion energy templates set, and two corresponding (types of) the hand image. To detect, we calculate the normalized correlation coefficient
+ for each template-"hand image" pair, and submit the maximum NCC score to final check. We set a threshold for waving's NCC score(0.5),
+ and a minimum size check for the hand image. Additionally, to speed up the computation, the mean and standard 
+ deviation of templates were precalculated. 
 
+<br>
+ 
 
  For example, you might
   describe the motivation of your idea, the algorithmic steps of your methods, or
