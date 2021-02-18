@@ -164,7 +164,8 @@ Eventually the program is able to detect four hand shapes:  ok ,  pistol, thumb 
 Discuss your method and results:
 </p><ul>
 <li> The program requires user to manully tune the skin detection thresholds when used under different contexts. However, once the tunning is done, the algorithm is capable of 
- detect gesture and hand shapes, which it was designed to recognize. </li>
+ detect gesture and hand shapes, which it was designed to recognize. There were a lot of false positive thumb downs , occured when I switched between two different gesture. Later I found out
+ that it was my face skin causing the thumb down alarms. So on way to solve this issue is just keep my face out of the view</li>
 <li>In the developement process, we found that using normalized correlation correfficient to measure how likelihood of a positive detection is quite accurate. Althought we only
  use NCC for gesture detection, but it was confirmed to work just as well on hand shapes detection. So the application of NCC is general success. </li>
 <li>There are many other measures like circularity , object orientation, centroid can be added to the likelihood calculate for each candidates. However, now we were not able to 
